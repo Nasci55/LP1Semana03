@@ -15,6 +15,14 @@ namespace ArrayMul
             matrixA[1, 0] = float.Parse(args[2]);
             matrixA[1, 1] = float.Parse(args[3]);
 
+            float[,] matrixB = new float[2, 1];
+
+            matrixB[0, 0] = float.Parse(args[4]);
+            matrixB[0, 1] = float.Parse(args[5]);
+
+            float[,] result = new float[2, 1];
+
+
 
         }
     }
