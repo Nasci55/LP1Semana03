@@ -11,6 +11,11 @@ namespace RightSize
                 if (w.Length > 3)
                 {
                     Console.WriteLine(w);
+                    if (w.Length >= 8)
+                    {
+                        System.Console.WriteLine("[EARLY STOP]");
+                        break;
+                    }
                 }
             }
         }
