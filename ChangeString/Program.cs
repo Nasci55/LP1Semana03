@@ -12,7 +12,17 @@ namespace ChangeString
 
             char chosenChar = char.Parse(cOut);
 
-            char c;
+            char substitute = char.Parse("x");
+
+            foreach (char c in input)
+            {
+                if (c == chosenChar)
+                {
+                    System.Console.Write(substitute);
+                }
+                System.Console.Write(c);
+
+            }
 
 
 
