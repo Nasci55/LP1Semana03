@@ -20,8 +20,10 @@ namespace ChangeString
                 {
                     System.Console.Write(substitute);
                 }
-                System.Console.Write(c);
-
+                else
+                {
+                    System.Console.Write(c);
+                }
             }
 
 
