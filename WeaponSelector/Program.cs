@@ -49,7 +49,7 @@ namespace WeaponSelector
                         break;
 
                 }
-
+                weapon
                 return weapon;
 
 
@@ -64,9 +64,41 @@ namespace WeaponSelector
         /// <returns>Wether the enemy was killed or not.</returns>
         private static bool WeaponsKillEnemy(EnemyType enemy, Weapons weapons)
         {
-            if (Weapons.Garlic  EnemyType.Ghost )
+            bool dies = false;
 
-            
+            if (enemy == EnemyType.Zombie)
+            {
+                if ((weapons & Weapons.SilverBullet) == Weapons.SilverBullet)
+                {
+                    dies = true;
+
+                }
+            }
+            if (enemy == EnemyType.Vampire)
+            {
+                if ((weapons & Weapons.Garlic) == Weapons.Garlic ||
+                (weapons & Weapons.HolyWater) == Weapons.HolyWater)
+                {
+                    dies = true;
+                }
+            }
+
+            if (enemy == EnemyType.Werewolf)
+            {
+                if ((weapons & Weapons.SilverBullet) == Weapons.SilverBullet)
+                {
+                    dies = true;
+                }
+            }
+            if (enemy == EnemyType.Ghost)
+            {
+                if ((weapons & Weapons.HolyWater) == Weapons.HolyWater)
+                {
+                    dies = true;
+                }
+            }
+
+            return dies;
         }
 
         /// <summary>
@@ -75,9 +107,15 @@ namespace WeaponSelector
         /// <param name="enemy">The enemy we're trying to kill.</param>
         private static void DisplayResult(EnemyType enemy, bool survives)
         {
-            // ////////// //
-            // CHANGE ME! //
-            // ////////// //
+
+            if (survives == true)
+            {
+                System.Console.WriteLine($"{enemy} survives ");
+            }
+            else
+            {
+                System.Console.WriteLine($"{enemy} dies");
+            }
         }
     }
 }
