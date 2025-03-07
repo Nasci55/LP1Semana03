@@ -21,7 +21,7 @@ namespace HeroPerk
             string autoHeal = "a";
             char autoHealChar = char.Parse(autoHeal);
 
-            byte perk = 0b0000;
+            Perks perk = 0;
 
             foreach (string c in args)
             {
@@ -30,16 +30,16 @@ namespace HeroPerk
                     switch (s)
                     {
                         case 'd':
-                            perk ^= (byte)Perks.DoubleJump;
+                            perk ^= Perks.DoubleJump;
                             break;
                         case 'w':
-                            perk ^= (byte)Perks.WarpShift;
+                            perk ^= Perks.WarpShift;
                             break;
                         case 'a':
-                            perk ^= (byte)Perks.AutoHeal;
+                            perk ^= Perks.AutoHeal;
                             break;
                         case 's':
-                            perk ^= (byte)Perks.Stealth;
+                            perk ^= Perks.Stealth;
                             break;
                         default:
                             System.Console.WriteLine("!Unknown perk!");
@@ -59,7 +59,7 @@ namespace HeroPerk
 
             foreach (Perks n in Enum.GetValues(typeof(Perks)))
             {
-                if ((perk & (byte)n) == (byte)n)
+                if ((perk & n) == n)
                 {
                     activePerks.Add(Enum.GetName(typeof(Perks), n));
                 }
@@ -75,15 +75,15 @@ namespace HeroPerk
             }
 
 
-            if ((perk & (byte)Perks.DoubleJump) != 0 &&
-                (perk & (byte)Perks.Stealth) != 0)
+            if ((perk & Perks.DoubleJump) != 0 &&
+                (perk & Perks.Stealth) != 0)
             {
                 System.Console.WriteLine("!Silent jumper!");
             }
 
 
 
-            if ((perk & (byte)Perks.AutoHeal) != (byte)Perks.AutoHeal)
+            if ((perk & Perks.AutoHeal) != Perks.AutoHeal)
             {
                 System.Console.WriteLine("!Not gonna make it!");
             }
