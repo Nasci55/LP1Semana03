@@ -17,7 +17,8 @@ namespace Pow2Until
 
         private static void Main(string[] args)
         {
-
+            PowersOf2Until5();
+            PowersOf2Until5();
         }
     }
 }
