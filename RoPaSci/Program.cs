@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.XPath;
 
 namespace RoPaSci
 {
@@ -23,20 +24,24 @@ namespace RoPaSci
 
         private static int RockPaperScissors(string player1, string player2)
         {
+            int result;
+
             if (player1 == player2)
             {
-                return 0; // Draw
+                result = 0; // Draw
             }
-            if (((player1 == "Rock") && (player2 == "Scissors")) ||
+            else if (((player1 == "Rock") && (player2 == "Scissors")) ||
                 ((player1 == "Scissors") && (player2 == "Paper")) ||
                 ((player1 == "Paper") && (player2 == "Rock")))
             {
-                return 1; // Player 1 wins
+                result = 1; // Player 1 wins
             }
             else
             {
-                return 2; // Player 2 wins
+                result = 2; // Player 2 wins
             }
+
+            return result;
         }
     }
 }
