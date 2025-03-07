@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using HeroPerks;
+using System.Collections.Generic;
 
 namespace HeroPerk
 {
@@ -27,10 +29,10 @@ namespace HeroPerk
                 {
                     switch (s)
                     {
-                        case 'w':
+                        case 'd':
                             perk ^= (byte)Perks.DoubleJump;
                             break;
-                        case 'd':
+                        case 'w':
                             perk ^= (byte)Perks.WarpShift;
                             break;
                         case 'a':
@@ -51,14 +53,33 @@ namespace HeroPerk
 
             }
 
+
+
+            List<string> activePerks = new List<string>();
+
+            foreach (Perks n in Enum.GetValues(typeof(Perks)))
+            {
+                if ((perk & (byte)n) == (byte)n)
+                {
+                    activePerks.Add(Enum.GetName(typeof(Perks), n));
+                }
+            }
+
             if (perk == 0)
             {
                 System.Console.WriteLine("!No perks at all!");
-                return;
+            }
+            else
+            {
+                Console.WriteLine(string.Join(", ", activePerks));
             }
 
 
-
+            if ((perk & (byte)Perks.DoubleJump) != 0 &&
+                (perk & (byte)Perks.Stealth) != 0)
+            {
+                System.Console.WriteLine("!Silent jumper!");
+            }
 
 
 
