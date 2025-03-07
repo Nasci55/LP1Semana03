@@ -110,7 +110,7 @@ namespace WeaponSelector
         private static void DisplayResult(EnemyType enemy, bool survives)
         {
 
-            if (survives == true)
+            if (survives == false)
             {
                 System.Console.WriteLine($"{enemy} survives ");
             }
