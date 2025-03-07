@@ -28,20 +28,20 @@ namespace HeroPerk
                     switch (s)
                     {
                         case 'w':
-                            perk |= (byte)Perks.DoubleJump;
+                            perk ^= (byte)Perks.DoubleJump;
                             break;
                         case 'd':
-                            perk |= (byte)Perks.WarpShift;
+                            perk ^= (byte)Perks.WarpShift;
                             break;
                         case 'a':
-                            perk |= (byte)Perks.AutoHeal;
+                            perk ^= (byte)Perks.AutoHeal;
                             break;
                         case 's':
-                            perk |= (byte)Perks.Stealth;
+                            perk ^= (byte)Perks.Stealth;
                             break;
                         default:
-                            System.Console.WriteLine("!Unknown perk");
-                            break;
+                            System.Console.WriteLine("!Unknown perk!");
+                            return;
 
 
                     }
@@ -51,7 +51,22 @@ namespace HeroPerk
 
             }
 
-            System.Console.WriteLine(perk);
+            if (perk == 0)
+            {
+                System.Console.WriteLine("!No perks at all!");
+                return;
+            }
+
+
+
+
+
+
+            if ((perk & (byte)Perks.AutoHeal) != (byte)Perks.AutoHeal)
+            {
+                System.Console.WriteLine("!Not gonna make it!");
+            }
+
         }
     }
 }
