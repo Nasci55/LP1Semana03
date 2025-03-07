@@ -33,27 +33,29 @@ namespace WeaponSelector
                 switch (weap)
                 {
                     case "SilverBullet":
-                        weapon = Weapons.SilverBullet;
+                        weapon |= Weapons.SilverBullet;
                         break;
 
                     case "HolyWater":
-                        weapon = Weapons.HolyWater;
+                        weapon |= Weapons.HolyWater;
                         break;
 
                     case "Garlic":
-                        weapon = Weapons.Garlic;
+                        weapon |= Weapons.Garlic;
                         break;
 
                     default:
-                        weapon = Weapons.None;
+                        weapon |= Weapons.None;
                         break;
 
                 }
-                weapon
-                return weapon;
+
+
+
 
 
             }
+            return weapon;
         }
 
         /// <summary>
