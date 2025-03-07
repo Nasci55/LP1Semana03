@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using HeroPerks;
+using HeroPerk;
 using System.Collections.Generic;
 
 namespace HeroPerk
